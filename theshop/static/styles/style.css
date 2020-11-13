@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+* {
+    box-sizing: border-box;
+
+
+}
+
+
+html, body {
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+    min-height: 100%;
+}
+
+li, a, button, input {
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.logo {
+    cursor: pointer;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 0px 10px 0px;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+}
+
+.top-buffer{
+    padding-top: 15px;
+}
+
+.search input {
+    font-weight: bolder;
+    color: black;
+    box-sizing: border-box;
+    border-radius: 12px;
+    font-family: sans-serif;
+    padding: 0 15px 0 15px;
+    text-align: center;
+    min-height: 40px;
+
+}
+
+.container {
+    display: flex;
+
+}
+
+.nav-links {
+    list-style: none;
+}
+
+.nav-links li {
+    display: inline-block;
+    padding: 0 20px;
+    list-style: none;
+    transition: all 0.3s ease-out 0.1s;
+    border-radius: 12px;
+    outline: none;
+    border: none;
+
+}
+
+.nav-links li a:hover {
+    color: black
+}
+
+.nav-icons {
+
+}
+
+.main {
+
+    display: flex;
+    padding: 0px 10px;
+    height: 70vh;
+    margin-left: 5px;
+}
+
+#bootstrap-overrides .col-lg-3 {
+    max-width: none;
+}
+
+.nav-icons a:link {
+    text-decoration: none;
+}
+
+.nav-icons a {
+    border-radius: 12px;
+    outline: none;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    padding: 15px;
+    min-width: 80px;
+    cursor: pointer;
+    transition: all 0.2s ease-out 0.1s;
+
+}
+
+
+
+.scrollable-list ul {
+    height: 200px;
+    width: 100%;
+}
+
+.scrollable-list ul {
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+
+#filters {
+    padding-left: 10px;
+}
+
+
+#settings:hover {
+    background-image: url('../images/gear.jpg');
+    background-size: 90px 52px;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: rotate(360deg);
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000
+}
+
+#cart:hover {
+    background-image: url('../images/cart.png');
+    background-size: 40px 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000
+}
