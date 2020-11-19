@@ -2,8 +2,120 @@
 
 {% block title %} Homepage  {% endblock %}
 
+{% load static %}
 
 {% block content %}
+    <div class='container'>
+        <div class='col-lg-8'>
+            <div class="w-100 row">
+                <div class="card w-100">
+                    <div class="card-body" id="cart-card-body">
+                        <h5 class="card-title pl-2">Zawartość koszyka</h5>
+                        <p class="card-text pl-3">Dodanie przedmiotów do koszyka nie oznacza ich rezerwacji</p>
 
-    <h1> This cart</h1>
+                        <div class="cart-row">
+                            <div class="allign-center" style="flex-grow:3"></div>
+                            <div class="allign-center" style="flex-grow:3">Przedmiot</div>
+                            <div class="allign-center" style="flex-grow:3">Ilość</div>
+                            <div class="allign-center" style="flex-grow:2">Cena za szt.</div>
+                            <div class="allign-center" style="flex-grow:2">Suma</div>
+                            <div class="allign-center" style="flex-grow:1"> Usuń</div>
+                        </div>
+                        <hr class="no-margin-top no-margin-bottom w-80">
+
+
+                        {% for i in '11111'|make_list %}
+                            <hr class="no-margin-top">
+                        <div class="cart-row">
+
+                            <div class='col-lg-2' style="flex-grow:3">
+                                <img class="cart-image" src="{% static 'images/imag.PNG' %}">
+                            </div>
+
+                            <div class='col-lg-3' style="flex-grow:3">
+
+                                Koszulka twój stary jest pijany ło kuuuuuuuuuuuuuuuuuurwa
+                            </div>
+
+
+                            <div class='col-lg-3' style="flex-grow:2">
+
+                                <input class='w-75' type="number" id="quantity" name="quantity" min="1"
+                                       max="5">
+                            </div>
+
+                            <div class='col-lg-2  ' style="flex-grow:3">
+
+
+
+                                <div>zł</div>
+                            </div>
+
+                            <div class='col-lg-1 ' style="flex-grow:2" >
+
+
+
+                                <div>zł</div>
+                            </div>
+                            <div class='col-lg-1 cart-row'>
+
+                                <a href="#"><img class = cart-icon src="{% static 'images/trash.svg' %}"><i class="fa fa-caret-down"></i></a>
+
+                            </div>
+
+
+                        </div>
+
+
+                        {% endfor %}
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class='col-lg-4'>
+            <div class="row w-100 ">
+                <div class="card w-100">
+                    <div class="card-body">
+
+                        <h5 class="card-title">Łączna kwota</h5>
+                        <div class="price">
+                            <span>Kwota:</span>
+                            <span class="right">{{ kwota }} zł</span>
+                        </div>
+
+                        <div class="ship">
+                            <span>Przesyłka:</span>
+                            <span class="right">{{ ship }} zł</span>
+                        </div>
+                        <hr>
+                        <div class="total">
+                            <span>Total:</span>
+                            <span class="right">{{ total }} zł</span>
+                        </div>
+                        <br>
+                        <a href="#" class="btn btn-primary">Przejdź do kasy</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row top-buffer w-100 ">
+                <div class="card w-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Masz kod rabatowy?</h5>
+                        <input class='coupon-code' type="text" value="" placeholder="Kod rabatowy">
+                        <br>
+                        <input value="Zastosuj" type='submit' class="btn btn-primary">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}

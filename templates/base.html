@@ -11,6 +11,8 @@
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
           crossorigin="anonymous">
 
+    <script type="text/javascript" src="{% static 'scripts/profilemenu.js' %} "></script>
+
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
             integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
             crossorigin="anonymous"></script>
@@ -20,6 +22,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             crossorigin="anonymous"></script>
+
 
     <title>{% block title %} {% endblock %}</title>
     {% block head %}    {% endblock %}
@@ -48,13 +51,24 @@
         <input type="text" placeholder=" Wyszukaj produkty...">
     </div>
 
-    <div class='nav-icons'>
-        <a id="cart" href='{% url 'cart' %}'>
-            Cart
-        </a>
-        <a id='settings'>
-            Settings
-        </a>
+    <div class='nav-icons' style="display: flex">
+        <div class="nav-cart">
+            <a id="cart" href='{% url 'cart' %}'>
+                Koszyk
+            </a>
+        </div>
+
+        <div class="dropdown">
+            <button class="dropbtn " id="settings" onclick="myFunction()">Profil
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content" id="myDropdown">
+                <a href="#">Dane profilu</a>
+                <a href="#">Zamówienia</a>
+                <a href="#">Zwroty</a>
+            </div>
+        </div>
+
     </div>
 
 </header>

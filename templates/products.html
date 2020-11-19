@@ -14,150 +14,120 @@
     <div class="main">
         <div class="col-lg-3">
             <div class='categories'>
-                <h5>Kategorie:</h5>
-                <ul>
-                    <li><a href="{% url 'clothes' %}">Odzież</a>{% block clothes %} {% endblock %}</li>
+                <div class="card">
+                    <h5>Kategorie:</h5>
+                    <ul>
+                        <li><a href="{% url 'clothes' %}">Odzież</a>{% block clothes %} {% endblock %}</li>
 
-                    <li><a href="{% url 'shoes' %}">Obuwie</a>{% block shoes %} {% endblock %}</li>
+                        <li><a href="{% url 'shoes' %}">Obuwie</a>{% block shoes %} {% endblock %}</li>
 
-                    <li><a href="{% url 'accesories' %}">Akcesoria</a>{% block accesories %} {% endblock %}</li>
+                        <li><a href="{% url 'accesories' %}">Akcesoria</a>{% block accesories %} {% endblock %}</li>
 
-                    <li><a href="{% url 'sport' %}">Sport</a>{% block sport %} {% endblock %}</li>
+                        <li><a href="{% url 'sport' %}">Sport</a>{% block sport %} {% endblock %}</li>
 
-                </ul>
+                    </ul>
 
-
+                </div>
             </div>
 
             <div class="scrollable-list">
-                <h5>Brand:</h5>
-                <ul id="filters">
-                    <li>
-                        <input type="checkbox" value="categorya" id="filter-categorya"/>
-                        <label for="filter-categorya">Armani</label>
-                    </li>
+                <div class="card">
+                    <h5>Brand:</h5>
+                    <ul id="filters">
+                        <li>
+                            <input type="checkbox" value="categorya" id="filter-categorya"/>
+                            <label for="filter-categorya">Armani</label>
+                        </li>
 
-                    <li>
-                        <input type="checkbox" value="categorya" id="filter-categorya"/>
-                        <label for="filter-categorya">Nike</label>
-                    </li>
+                        <li>
+                            <input type="checkbox" value="categorya" id="filter-categorya"/>
+                            <label for="filter-categorya">Nike</label>
+                        </li>
 
-                    <li>
-                        <input type="checkbox" value="categorya" id="filter-categorya"/>
-                        <label for="filter-categorya">Adidas</label>
-                    </li>
+                        <li>
+                            <input type="checkbox" value="categorya" id="filter-categorya"/>
+                            <label for="filter-categorya">Adidas</label>
+                        </li>
 
-                    <li>
-                        <input type="checkbox" value="categorya" id="filter-categorya"/>
-                        <label for="filter-categorya">Reebok</label>
-                    </li>
-
-
-                    <li>
-                        <input type="checkbox" value="categoryb" id="filter-categoryb"/>
-                        <label for="filter-categoryb">Puma</label>
-                    </li>
-
-                    <li>
-                        <input type="checkbox" value="categoryb" id="filter-categoryb"/>
-                        <label for="filter-categoryb">Versace</label>
-                    </li>
-
-                    <li>
-                        <input type="checkbox" value="categoryb" id="filter-categoryb"/>
-                        <label for="filter-categoryb"> Gucci</label>
-                    </li>
-
-                    <li>
-                        <input type="checkbox" value="categoryb" id="filter-categoryb"/>
-                        <label for="filter-categoryb"> Off-White</label>
-                    </li>
-
-                    <li>
-                        <input type="checkbox" value="categoryb" id="filter-categoryb"/>
-                        <label for="filter-categoryb"> New Look</label>
-                    </li>
-
-                    <li>
-                        <input type="checkbox" value="categoryb" id="filter-categoryb"/>
-                        <label for="filter-categoryb"> Essential</label>
-                    </li>
-
-                    <li>
-                        <input type="checkbox" value="categoryb" id="filter-categoryb"/>
-                        <label for="filter-categoryb"> Different Brand</label>
-                    </li>
+                        <li>
+                            <input type="checkbox" value="categorya" id="filter-categorya"/>
+                            <label for="filter-categorya">Reebok</label>
+                        </li>
 
 
-                </ul>
+                        <li>
+                            <input type="checkbox" value="categoryb" id="filter-categoryb"/>
+                            <label for="filter-categoryb">Puma</label>
+                        </li>
+
+                        <li>
+                            <input type="checkbox" value="categoryb" id="filter-categoryb"/>
+                            <label for="filter-categoryb">Versace</label>
+                        </li>
+
+                        <li>
+                            <input type="checkbox" value="categoryb" id="filter-categoryb"/>
+                            <label for="filter-categoryb"> Gucci</label>
+                        </li>
+
+                        <li>
+                            <input type="checkbox" value="categoryb" id="filter-categoryb"/>
+                            <label for="filter-categoryb"> Off-White</label>
+                        </li>
+
+                        <li>
+                            <input type="checkbox" value="categoryb" id="filter-categoryb"/>
+                            <label for="filter-categoryb"> New Look</label>
+                        </li>
+
+                        <li>
+                            <input type="checkbox" value="categoryb" id="filter-categoryb"/>
+                            <label for="filter-categoryb"> Essential</label>
+                        </li>
+
+                        <li>
+                            <input type="checkbox" value="categoryb" id="filter-categoryb"/>
+                            <label for="filter-categoryb"> Different Brand</label>
+                        </li>
+
+
+                    </ul>
+                </div>
             </div>
+            <div class="card">
+                <div class="price-slider">
 
-            <div class="price-slider">
+                    <h5>Price range:</h5>
+                    <input type="range" min="1" max="100" value="50">
 
-                <h5>Price range:</h5>
-                <input type="range" min="1" max="100" value="50">
-
+                </div>
             </div>
         </div>
         <div class="col-lg-9">
             <div class='row'>
 
+                {% for product in products %}
+                    <div class="col-lg-4 top-buffer">
+                        <div class="card">
+                            <img class="thumbnail" src="
 
-                <div class="col-lg-4">
-                    <img class="thumbnail" src="{% static 'images/imag.PNG' %}">
-                    <div class="box-element product">
-                        <h6><strong>Product</strong></h6>
-                        <hr>
+                                    {% if product.image.url %}{{ product.image.url }}{% else %}{% static 'images/imag.PNG' %}{% endif %} ">
 
-                        <button class="btn btn-outline-secondary add-btn">Add to Cart</button>
-                        <a class="btn btn-outline-success" href="#">View</a>
-                        <h4 style="display: inline-block; float: right"><strong>$20</strong></h4>
+                            <div class="box-element product">
+                                <hr class="no-margin-top">
+                                <span class="product-name"> <strong>{{ product.name }}</strong></span>
+                                <hr>
 
+                                <button class="btn btn-outline-secondary add-btn">Add to Cart</button>
+                                <a class="btn btn-outline-success" href="#">View</a>
+                                <h4 style="display: inline-block; float: right">
+                                    <strong>{{ product.price|floatformat:-2 }} zł</strong></h4>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                {% endfor %}
 
-                <div class="col-lg-4">
-                    <img class="thumbnail" src="{% static 'images/imag.PNG' %}">
-                    <div class="box-element product">
-                        <h6><strong>Product</strong></h6>
-                        <hr>
 
-                        <button class="btn btn-outline-secondary add-btn">Add to Cart</button>
-                        <a class="btn btn-outline-success" href="#">View</a>
-                        <h4 style="display: inline-block; float: right"><strong>$20</strong></h4>
-
-                    </div>
-                </div>
-
-                <div class="col-lg-4">
-                    <img class="thumbnail" src="{% static 'images/imag.PNG' %}">
-                    <div class="box-element product">
-                        <h6><strong>Product</strong></h6>
-                        <hr>
-
-                        <button class="btn btn-outline-secondary add-btn">Add to Cart</button>
-                        <a class="btn btn-outline-success" href="#">View</a>
-                        <h4 style="display: inline-block; float: right"><strong>$20</strong></h4>
-
-                    </div>
-                </div>
-
-            </div>
-
-            <div class='row top-buffer'>
-
-                <div class="col-lg-3">
-                    <img class="thumbnail" src="{% static 'images/imag.PNG' %}">
-                    <div class="box-element product">
-                        <h6><strong>Product</strong></h6>
-                        <hr>
-
-                        <button class="btn btn-outline-secondary add-btn">Add to Cart</button>
-                        <a class="btn btn-outline-success" href="#">View</a>
-                        <h4 style="display: inline-block; float: right"><strong>$20</strong></h4>
-
-                    </div>
-                </div>
             </div>
         </div>
     </div>

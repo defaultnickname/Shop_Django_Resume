@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{% block title %} Homepage  {% endblock %}
+
+{% load static %}
+
+{% block content %}
+    <div class='container'>
+        <div class='col-lg-8'>
+            <div class="w-100 row">
+                <div class="card w-100">
+
+
+                    <div class="payment-icons">
+
+                        <div style="flex-grow: 2">
+                            <button onclick="replaceContent('p24')" id="p24"></button>
+                        </div>
+
+                        <div style="flex-grow: 2">
+                            <button onclick="replaceContent('cc')" id="cc"></button>
+                        </div>
+
+                        <div style="flex-grow: 2">
+                            <button onclick="replaceContent('pp')" id="pp"></button>
+                        </div>
+
+                    </div>
+                    <hr class="no-margin-top">
+
+                    <div id="payment-window" onload="mask()">>
+                        <form name="message" method="post">
+
+
+                            <div class="w-75 pt-2">
+                                <label for="card-holder">Posiadacz karty</label>
+                                <input class="w-100" id="card-holder" type="text" value="" name="name">
+                            </div>
+
+                            <div class="w-75 pt-4">
+                                <label  for="card-number">Numer Karty</label>
+                                <input  class="w-100" id="card-number" type="text" value="" name="email">
+                            </div>
+
+
+                            <div class="w-75 pt-4" style="display: inline-flex">
+                                <div class="w-50">
+                                    <label for="exp-date">Data wygaśnięcia MM/RR</label>
+                                    <input class="w-100"  id="exp-date" type="text" value="" name="subject">
+                                </div>
+                                <div class="w-50 pl-1">
+                                    <label for="security-code">Kod zabezpieczający</label>
+                                    <input class="w-100" id="security-code" type="text" value="" name="message">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class='col-lg-4'>
+            <div class="row w-100 ">
+                <div class="card w-100">
+                    <div class="card-body">
+
+                        <h5 class="card-title">Łączna kwota</h5>
+                        <div class="price">
+                            <span>Kwota:</span>
+                            <span class="right">{{ kwota }} zł</span>
+                        </div>
+
+                        <div class="ship">
+                            <span>Przesyłka:</span>
+                            <span class="right">{{ ship }} zł</span>
+                        </div>
+                        <hr>
+                        <div class="total">
+                            <span>Total:</span>
+                            <span class="right">{{ total }} zł</span>
+                        </div>
+                        <br>
+                        <a href="#" class="btn btn-primary">Przejdź do kasy</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row top-buffer w-100 ">
+                <div class="card w-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Masz kod rabatowy?</h5>
+                        <input class='coupon-code' type="text" value="" placeholder="Kod rabatowy">
+                        <br>
+                        <input value="Zastosuj" type='submit' class="btn btn-primary">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

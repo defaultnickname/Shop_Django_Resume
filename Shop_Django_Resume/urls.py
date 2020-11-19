@@ -17,6 +17,9 @@ from django.contrib import admin
 from django.urls import path
 from theshop import views as theshop_views
 
+from django.conf.urls.static import static
+from django.conf import settings
+
 urlpatterns = [
     path('', theshop_views.index, name='index'),
     path('cart/', theshop_views.cart, name='cart'),
@@ -28,4 +31,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('sport/', theshop_views.sport, name='sport'),
     path('products/', theshop_views.products, name='products'),
+    path('checkout/', theshop_views.checkout, name='checkout'),
 ]
+
+urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from .models import  *
 # Create your views here.
 
 
@@ -8,7 +8,8 @@ def index(request):
     return render(request, "index.html",context)
 
 def products(request):
-    context = { }
+    _products=Product.objects.all()
+    context = {'products':_products }
     return render(request, "products.html",context)
 
 def newstuff(request):
@@ -38,3 +39,7 @@ def accesories(request):
 def sport(request):
     context = { }
     return render(request,"sport.html", context)
+
+def checkout(request):
+    context = { }
+    return render(request, "checkout.html", context)
